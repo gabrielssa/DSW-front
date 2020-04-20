@@ -12,8 +12,9 @@ const Menu = (props) => {
             history.push('/')
     }
 
-    const markPage = () => {
-        console.log(props.page)
+    window.onload = function(){
+        document.getElementById(props.page).style.background = '#41b3a3';
+        document.getElementById(props.page).style.color = '#fdfdfd';
     }
 
     return (
@@ -22,9 +23,9 @@ const Menu = (props) => {
             <h1>Naja</h1>
             <nav id="navbar-container">
                 <ul id="navbar" >
-                    <li id="home">Home</li>
-                    <li id="cadastrarProduto">Cadastrar Produto</li>
-                    <li id="listarProduto">Listar Produtos</li>
+                <a href="/home"><li id="home">Home</li></a>
+                <a href="/cadastrar-produto"><li id="cadastrarProduto">Cadastrar Produto</li></a>
+                <a href="/listar-produto"><li id="listarProduto">Listar Produtos</li></a>
                     <li id="logout" onClick={logout}>Logout</li>
                 </ul>
             </nav>
