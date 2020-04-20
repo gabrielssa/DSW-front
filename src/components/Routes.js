@@ -10,14 +10,15 @@ import Login from '../pages/login';
 import Register from '../pages/register';
 import Home from '../pages/home';
 import NotFound from '../components/NotFound';
+import PrivateRoute from './PrivateRoute.js';
 
 const Routes = () => (
   <Router >
     <Switch>
-      <Route exact path="/" component={Home} />
+      <PrivateRoute path="/home" component={Home} />
       <Route path="/register" component={Register} />
-      <Route path="/login" component={Login} />
-      <Route component={NotFound} />
+      <Route exact path="/" component={Login} />
+      <PrivateRoute component={NotFound} />
     </Switch>
   </Router>
 )

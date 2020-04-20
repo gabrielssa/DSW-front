@@ -1,11 +1,25 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 
 import {ErrorMessage, Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
+import axios from 'axios';
+
 import './login.css';
 
 const Login = () => {
-    const handleSubmit = values => console.log(values)
+    let history = useHistory();
+
+    const handleSubmit = values => {
+        axios.post('http://localhost:5555/login', values)
+            .then(resp => {
+                const { data } = resp
+                if ( data ){
+                    localStorage.setItem('app-token', data.token)
+                    history.push('/home')
+                }
+            });
+    }
     const validations = yup.object().shape({
         email: yup.string().email().required(),
         password: yup.string().min(8).required()
@@ -13,9 +27,9 @@ const Login = () => {
 
     return (
         <>
-        <div>
-        <h1>Test</h1>
-        <h2>Este é um test</h2>
+        <div id="login-container">
+        <h1>Login</h1>
+        <p>Preencha os campos para logar</p>
 
         <Formik initialValues={{}} onSubmit={handleSubmit} validationSchema={validations}>
             <Form className="Login">
