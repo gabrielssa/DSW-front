@@ -6,6 +6,10 @@ const CadastrarProduto = () => {
         <>
             <Menu page="cadastrarProduto"/>
             <h1>CadastrarProduto</h1>
+
+            <form>
+            <input type="file"></input>
+            </form>
         </>
     )
 }

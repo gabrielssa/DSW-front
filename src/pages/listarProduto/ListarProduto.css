@@ -1,0 +1,59 @@
+#principal{
+    display: grid;
+    grid-auto-rows: minmax(min-content, max-content);
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas:    "menu menu"
+                            "sidebar produtos";
+    grid-gap: 1rem;
+}
+
+#produtos{
+    width: 700px;
+    grid-area: produtos;
+    transition: all 100ms linear;
+}
+
+#menu{
+    grid-area: menu;
+}
+
+.produto{
+    border: 1px solid #c38d9e;
+    margin-bottom: 0.3rem;
+    background: white;
+    height: 3rem;
+    text-align: center;
+    padding-top: 10px;
+    box-sizing: border-box;
+    padding-top: 1rem;
+    border-radius: 5px;
+}
+
+.nomeProduto{
+    margin-right: 1rem;
+}
+
+aside{
+    width: 200px;
+    box-sizing: border-box;
+    padding: 1rem;
+    grid-area: sidebar;
+    height: 12rem;
+    border: 1px solid #41b3a3;
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: #41b3a3;
+}
+
+aside h1{
+    font-size: 1rem;
+}
+
+aside ul{
+    list-style-type: none;
+    padding: 0px;
+}
+
+aside li{
+    line-height: 1.5rem;
+}
