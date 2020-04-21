@@ -16,7 +16,7 @@ const Login = () => {
                 const { data } = resp
                 if ( data ){
                     localStorage.setItem('app-token', data.token)
-                    history.push('/home')
+                    window.location = "/listar-produto"
                 }
             });
     }

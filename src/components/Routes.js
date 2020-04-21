@@ -17,10 +17,9 @@ import ListarProduto from '../pages/listarProduto';
 const Routes = () => (
   <Router >
     <Switch>
-      <PrivateRoute path="/home" component={Home} />
       <Route path="/register" component={Register} />
-      <Route path="/cadastrar-produto" component={CadastrarProduto}/>
-      <Route path="/listar-produto" component={ListarProduto}/>
+      <PrivateRoute path="/cadastrar-produto" component={CadastrarProduto}/>
+      <PrivateRoute path="/listar-produto" component={ListarProduto}/>
       <Route exact path="/" component={Login} />
       <PrivateRoute component={NotFound} />
     </Switch>

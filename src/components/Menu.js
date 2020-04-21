@@ -23,7 +23,6 @@ const Menu = (props) => {
             <h1>Naja</h1>
             <nav id="navbar-container">
                 <ul id="navbar" >
-                <a href="/home"><li id="home">Home</li></a>
                 <a href="/cadastrar-produto"><li id="cadastrarProduto">Cadastrar Produto</li></a>
                 <a href="/listar-produto"><li id="listarProduto">Listar Produtos</li></a>
                     <li id="logout" onClick={logout}>Logout</li>
