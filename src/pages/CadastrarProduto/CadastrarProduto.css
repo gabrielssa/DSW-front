@@ -1,0 +1,75 @@
+#form {
+    margin: 0px auto;
+    background: #41b3a3;
+    width: 480px;
+    margin-top: 2rem;
+    border-radius: 10px;
+}
+
+.form-element{
+    margin: 0px auto;
+    display: block;
+    text-align: center;
+}
+
+#btn{
+    border: none;
+    padding: 1rem;
+    width: 20%;
+    background: green;
+    border-radius: 10px;
+}
+
+#btn:hover{
+    cursor: pointer;
+}
+
+#form input{
+    padding: 1rem;
+    width: 80%;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#form select{
+    padding: 1rem;
+    color: #41b3a3;
+    margin-bottom: 1rem;
+}
+
+#imgLabel{
+    color: #fdfdfd;
+    font-size: 1.5rem;
+}
+
+#labelCategoria{
+    margin-left: 10%;
+}
+
+#produtoCriado{
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #41b3a3;
+    display: none;
+}
+
+#produtoCriado img{
+    width: 15%;
+    display: block;
+    margin: 0px auto;
+}
+
+#erroCriando{
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #F84545;
+    display: none;
+}
+
+#erroCriando img{
+    width: 15%;
+    display: block;
+    margin: 0px auto;
+}

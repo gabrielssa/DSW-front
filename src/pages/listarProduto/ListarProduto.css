@@ -23,14 +23,35 @@
     background: white;
     height: 3rem;
     text-align: center;
-    padding-top: 10px;
     box-sizing: border-box;
-    padding-top: 1rem;
     border-radius: 5px;
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 3fr 3fr 3fr;
+    grid-template-areas: "apagar nome quantidade mais";
 }
 
 .nomeProduto{
     margin-right: 1rem;
+    grid-area: nome;
+    align-self: center;
+}
+
+.qtdProduto{
+    grid-area: quantidade;
+    align-self: center;
+}
+
+#img-apagar{
+    width: 25px;
+    grid-area: apagar;
+    justify-self: center;
+    align-self: center;
+}
+
+#img-apagar:hover{
+    cursor:pointer;
 }
 
 aside{
@@ -56,4 +77,8 @@ aside ul{
 
 aside li{
     line-height: 1.5rem;
+}
+
+aside li:hover{
+    cursor: pointer;
 }
