@@ -12,7 +12,7 @@ const Register = () => {
     let history = useHistory();
 
     const handleSubmit = values => {
-        axios.post('http://localhost:5555/register', values)
+        axios.post('http://dsw-backend.herokuapp.com/register', values)
             .then(resp => {
                 const { data } = resp
                 if ( data ){

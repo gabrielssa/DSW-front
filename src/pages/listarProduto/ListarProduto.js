@@ -2,12 +2,14 @@ import React from 'react';
 import Menu from '../../components/Menu';
 import './ListarProduto.css'
 import Api from '../login/Api';
-import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 const ListarProduto = () => {
 
+    let history = useHistory();
+    
+
     const removeProduct = function(produto){
-        alert('Apagando produto ' + produto.name)
         appToken = localStorage.getItem('app-token')
         
         const config = {
@@ -20,14 +22,30 @@ const ListarProduto = () => {
         };
 
         bodyParameters._id = produto._id;
-
-        console.log(bodyParameters);
-        console.log(config);
         
-        Api.delete( 
-          'http://localhost:5555/product',
-          config,
-        ).then(console.log).catch(console.log);
+        var r = window.confirm("Você realmente deseja remover este item?");
+        if (r == true) {
+            Api.delete( 
+                `http://dsw-backend.herokuapp.com/product/${produto._id}`,
+                config,
+              ).then(res =>{
+                  console.log(res);
+                  alert('Item Apagado');
+                  if (produto.category === "tv"){
+                      listaTvs();
+                  }else if (produto.category === "edo"){
+                      listaEdo();
+                  }else if (produto.category === "vga"){
+                      listaVga();
+                  }else if (produto.category === "cel"){
+                      listaCel();
+                  }
+      
+              })
+        } else {
+            alert("Remoção de Item Cancelada");
+        } 
+
 
     }
 
@@ -67,7 +85,7 @@ const ListarProduto = () => {
     const handleRequest = values => {
         let category = values.categoria;
         appToken = localStorage.getItem('app-token')
-        Api.get(`http://localhost:5555/product?category=${category}&order=asc`, {
+        Api.get(`http://dsw-backend.herokuapp.com/product?category=${category}&order=asc`, {
             'headers': {
               'Authorization': 'Bearer ' + appToken
             }})
@@ -75,7 +93,7 @@ const ListarProduto = () => {
           const test = res.data;
           document.getElementById("produtos").innerHTML = '';
 
-          if (test.length == 0){
+          if (test.length === 0){
               var result = document.createElement("p")
               var resultText = document.createTextNode(`Nenhum produto encontrado na categoria de ${values.nome}`);
               result.appendChild(resultText);
@@ -86,6 +104,7 @@ const ListarProduto = () => {
           for (let i = 0; i < test.length; i++){
               var produto = document.createElement("div");
               produto.className = "produto";
+
 
               var nameP = document.createElement("span");
               nameP.className = "nomeProduto"
@@ -104,7 +123,24 @@ const ListarProduto = () => {
               img.addEventListener("click", () => {
                     removeProduct(test[i])
               })
-                
+
+              if (test[i].amount < 10 && test[i].amount > 0){
+                  produto.style.background = "rgb(192, 173, 1)";
+                  produto.style.color = "#fdfdfd";
+              }else if (test[i].amount === 0){
+                  produto.style.background = "red";
+                  produto.style.color = "#fdfdfd";
+              }
+
+              quantidadeP.addEventListener("click", () => {
+                history.push({
+                    pathname: '/ver-produto',
+                    _id: test[i]._id,
+                    amount: test[i].amount
+
+                  })
+
+              })
 
               produto.appendChild(nameP); 
               produto.appendChild(quantidadeP);

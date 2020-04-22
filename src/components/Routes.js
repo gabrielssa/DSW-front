@@ -13,6 +13,7 @@ import NotFound from '../components/NotFound';
 import PrivateRoute from './PrivateRoute.js';
 import CadastrarProduto from '../pages/CadastrarProduto';
 import ListarProduto from '../pages/listarProduto';
+import VerProduto from '../pages/verProduto';
 
 const Routes = () => (
   <Router >
@@ -20,6 +21,7 @@ const Routes = () => (
       <Route path="/register" component={Register} />
       <PrivateRoute path="/cadastrar-produto" component={CadastrarProduto}/>
       <PrivateRoute path="/listar-produto" component={ListarProduto}/>
+      <PrivateRoute path="/ver-produto" component={VerProduto} />
       <Route exact path="/" component={Login} />
       <PrivateRoute component={NotFound} />
     </Switch>

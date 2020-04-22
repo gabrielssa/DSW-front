@@ -13,8 +13,10 @@ const Menu = (props) => {
     }
 
     window.onload = function(){
-        document.getElementById(props.page).style.background = '#41b3a3';
-        document.getElementById(props.page).style.color = '#fdfdfd';
+        if (props.page != 'produto'){
+            document.getElementById(props.page).style.background = '#41b3a3';
+            document.getElementById(props.page).style.color = '#fdfdfd';
+        }
     }
 
     return (

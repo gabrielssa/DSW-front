@@ -11,7 +11,7 @@ const Login = () => {
     let history = useHistory();
 
     const handleSubmit = values => {
-        axios.post('http://localhost:5555/login', values)
+        axios.post('http://dsw-backend.herokuapp.com/login', values)
             .then(resp => {
                 const { data } = resp
                 if ( data ){

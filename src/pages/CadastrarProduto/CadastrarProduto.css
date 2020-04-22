@@ -73,3 +73,15 @@
     display: block;
     margin: 0px auto;
 }
+
+#carregando img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 7rem;
+    margin-top: 10rem;
+}
+
+#carregando {
+    display: none;
+}

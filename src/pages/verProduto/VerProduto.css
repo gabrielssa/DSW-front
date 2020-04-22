@@ -1,0 +1,136 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#produto{
+    background: red;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:    "a b c"
+                            "img nome nome"
+                            "img preco preco"
+                            "img categoria quantidade"
+                            "remover x y"
+                            "d e f"
+                            "g atualizar h";
+    grid-gap: 0.5rem;
+    font-family: Noto Sans, sans-serif;
+}
+
+#categoria{
+    background: green;
+    grid-area: categoria;
+}
+
+.propriedade h3{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.propriedade p{
+    font-size: 1.8rem;
+}
+
+#produto-img{
+    width: 250px;
+    grid-area: img;
+    border-radius: 10px;
+    justify-self: center;
+    align-self: center;
+}
+
+#preco{
+    background: green;
+    grid-area: preco;
+    font-size: 2.5rem;
+    justify-self: center;
+    align-self: start;
+}
+
+#nome{
+    background: yellow;
+    grid-area: nome;
+    font-size: 2.5rem;
+    justify-self: center;
+    align-self: end;
+}
+
+#quantidade{
+    background: pink;
+    grid-area: quantidade;
+}
+
+#remover{
+    grid-area: remover;
+    justify-self: center;
+    align-self: start;
+    height: 50%;
+    width: 250px;
+    background: orange;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#remover:hover{
+    background: blue;
+    cursor:pointer;
+}
+
+#remover span{
+    display: block;
+    margin-top: 5px;
+}
+
+i {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+  
+
+button{
+    border: none;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+#atualizar{
+    grid-area: atualizar;
+    display: grid;
+    grid-template-columns: 0.1fr 0.9fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "up atu"
+                            "down atu";
+}
+
+#incQtd{
+    grid-area: up;
+}
+
+#decQtd{
+    grid-area: down;
+
+}
+
+#atuQtd{
+    grid-area: atu;
+}
+
+.hoverGreen:hover{
+    border: 1px solid green;
+}
