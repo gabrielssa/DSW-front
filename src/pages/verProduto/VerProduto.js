@@ -10,16 +10,30 @@ const VerProduto = (props) => {
         "qtd":data.amount
     }
 
+    const upgradeQtdStatus = (status) =>{
+        if (status === 'default'){
+            document.getElementById("qtdStatus").style.color = "black";
+            document.getElementById("qtdText").style.color = "black";
+
+        }else if(status === 'changed'){
+            document.getElementById("qtdStatus").innerHTML = "Novo Valor";
+            document.getElementById("qtdStatus").style.color = "red";
+            document.getElementById("qtdText").style.color = "red";
+        }
+    }
+
     const incrementaQtd = () =>{
         console.log(data.produto)
         produto.qtd += 1;
         console.log(produto.qtd)
+        upgradeQtdStatus('changed')
         document.getElementById("qtdValor").innerHTML = produto.qtd;
     }
 
     const decrementaQtd = () =>{
         produto.qtd -= 1;
         console.log(produto.qtd)
+        upgradeQtdStatus('changed')
         document.getElementById("qtdValor").innerHTML = produto.qtd;
     }
 
@@ -76,8 +90,8 @@ const VerProduto = (props) => {
             <h2 id="nome">Produto Tal</h2>
             
             <div id="quantidade" class="propriedade">
-                <h3>Em Estoque</h3>
-                <p><span id="qtdValor">65</span> Produtos</p>
+                <h3 id="qtdStatus">Em Estoque</h3>
+                <p id="qtdText"><span id="qtdValor">65</span> Produtos</p>
             </div>
             
             <div id="preco">

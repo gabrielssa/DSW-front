@@ -36,6 +36,18 @@
     grid-template-areas: "apagar nome quantidade mais";
 }
 
+.verProduto{
+    grid-area: mais;
+    align-self: center;
+    justify-self: right;
+    margin-right: 1rem;
+}
+
+.verProduto:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .nomeProduto{
     grid-area: nome;
     align-self: center;

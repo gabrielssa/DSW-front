@@ -116,6 +116,11 @@ const ListarProduto = () => {
               var quantidadePText = document.createTextNode("Quantidade Disponível: "+test[i].amount)
               quantidadeP.appendChild(quantidadePText);
 
+              var verProduto = document.createElement("span");
+              verProduto.className = "verProduto";
+              var verProdutoText = document.createTextNode("Ver Detalhes")
+              verProduto.appendChild(verProdutoText);
+
               var img = document.createElement('img'); 
               img.src = 'https://i.ibb.co/ncvjf8H/apagar.png';
               img.id = "img-apagar";
@@ -125,14 +130,14 @@ const ListarProduto = () => {
               })
 
               if (test[i].amount < 10 && test[i].amount > 0){
-                  produto.style.background = "rgb(192, 173, 1)";
-                  produto.style.color = "#fdfdfd";
+                  produto.style.background = "rgba(192, 173, 1,0.2)";
+                  produto.style.color = "#41b3a3";
               }else if (test[i].amount === 0){
-                  produto.style.background = "red";
-                  produto.style.color = "#fdfdfd";
+                  produto.style.background = "rgba(255, 0, 0, 0.200";
+                  produto.style.color = "#41b3a3";
               }
 
-              quantidadeP.addEventListener("click", () => {
+              verProduto.addEventListener("click", () => {
                 history.push({
                     pathname: '/ver-produto',
                     _id: test[i]._id,
@@ -145,6 +150,7 @@ const ListarProduto = () => {
               produto.appendChild(nameP); 
               produto.appendChild(quantidadeP);
               produto.appendChild(img);
+              produto.appendChild(verProduto);
               document.getElementById("produtos").appendChild(produto)
           }
         })
