@@ -38,8 +38,15 @@
 }
 
 #imgLabel{
-    color: #fdfdfd;
     font-size: 1.5rem;
+    text-align: center;
+    color: #fdfdfd;
+    margin: 0px auto;
+    display: block;
+}
+
+#imgLabel span{
+    margin-top: 10px;
 }
 
 #labelCategoria{
@@ -84,4 +91,17 @@
 
 #carregando {
     display: none;
+}
+
+#file{
+    font-size: 2rem;
+}
+
+#form input[type="file"]{
+    margin: 1rem auto;
+    display: block;
+    border: 1px dashed red;
+    background: #e27d60;
+    color: #fdfdfd;
+    font-size: 16px;
 }

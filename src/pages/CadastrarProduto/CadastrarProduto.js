@@ -59,10 +59,14 @@ const CadastrarProduto = () => {
 
     return (
         <>
+        
             <Menu page="cadastrarProduto"/>
             <div id="form">
-                <label for="file" class="form-element" id="imgLabel">Imagem do Produto</label>
-                <input type="file" id="file" class="form-element"/>
+                <label for="file" id="imgLabel">
+                    Adicione uma foto ao produto
+                </label>
+                
+                <input type="file" id="file" accept="image/*"/>
 
                 <input type="text" name ="name" id="name" class="form-element" placeholder="Nome do Produto"/>
                 <span id="labelCategoria">Categoria</span>
@@ -75,7 +79,7 @@ const CadastrarProduto = () => {
 
                 <input type="text" name ="amount" id="amount" class="form-element" placeholder="Quantidade em Estoque"/>
 
-                <input type="text" name ="value" id="value" class="form-element" placeholder="Valor do Produto"/>
+                <input type="text" name ="value" id="value" class="form-element" placeholder="Valor do Produto em R$ Ex: 44.56"/>
                 <button onClick={fileUploadHandler} class="form-element" id="btn">Upload</button>
             </div>
 
