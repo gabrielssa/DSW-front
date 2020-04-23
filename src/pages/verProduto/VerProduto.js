@@ -48,7 +48,11 @@ const VerProduto = (props) => {
     }
 
     const decrementaQtd = () =>{
-        produto.qtd -= 1;
+
+        if (!produto.qtd == 0){
+            produto.qtd -= 1;
+        }
+
         console.log(produto.qtd)
         upgradeQtdStatus('changed')
         document.getElementById("qtdValor").innerHTML = produto.qtd;
