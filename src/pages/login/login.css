@@ -53,3 +53,11 @@
     font-size: 0.7rem;
     color: red;
 }
+
+#links{
+    text-align: center;
+}
+
+.Login-Error{
+    display: block;
+}

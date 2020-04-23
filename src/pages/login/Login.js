@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import {ErrorMessage, Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
@@ -14,17 +14,20 @@ const Login = () => {
         document.getElementById("feedback").innerHTML = 'Logando'
         axios.post('http://dsw-backend.herokuapp.com/login', values)
             .then(resp => {
+                console.log(resp)
                 const { data } = resp
                 if ( data ){
                     localStorage.setItem('app-token', data.token)
                     window.location = "/listar-produto"
                 }
             }).catch(function(motivo) {
-                console.log(motivo)
+                console.log("erro")
+                alert('login ou senha incorretos')
+                /*
                 document.getElementById("feedback").innerHTML = 'Senha ou Login incorretos'
                 setTimeout(() => {
                     document.getElementById("feedback").innerHTML = '';
-                }, 3000);
+                }, 3000);*/
              });
     }
     
@@ -77,7 +80,11 @@ const Login = () => {
                 <button className="Login-Btn" type="submit">Login</button>
             </Form>
         </Formik>
-
+        
+            <div id="links">
+                <p><Link to="/register">Registrar</Link></p>
+                <p>Não tem uma conta?</p>
+            </div>
         </div>
         </>
     )

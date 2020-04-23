@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 import {ErrorMessage, Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
@@ -27,7 +27,7 @@ const Register = () => {
 
     return (
         <>
-        <div>
+        <div id="login-container">
         <h1>Register</h1>
         <p>Preencha os campos para se cadastrar</p>
 
@@ -37,6 +37,7 @@ const Register = () => {
                     <Field
                         name="name"
                         className="Login-Field"
+                        placeholder="primeiro nome"
                     />
 
                     <ErrorMessage 
@@ -51,6 +52,7 @@ const Register = () => {
                     <Field
                         name="lastname"
                         className="Login-Field"
+                        placeholder="último nome"
                     />
 
                     <ErrorMessage 
@@ -65,6 +67,7 @@ const Register = () => {
                     <Field
                         name="email"
                         className="Login-Field"
+                        placeholder="email"
                     />
 
                     <ErrorMessage 
@@ -79,6 +82,8 @@ const Register = () => {
                     <Field
                         name="password"
                         className="Login-Field"
+                        placeholder="senha"
+                        type="password"
                     />
 
                     <ErrorMessage 
@@ -93,7 +98,10 @@ const Register = () => {
                 <button className="Login-Btn" type="submit">Registrar</button>
             </Form>
         </Formik>
-
+            <div id="links">
+                <p>Já tem uma conta?</p>
+                <p><Link to="/">Login</Link></p>
+            </div>
         </div>
         </>
     )

@@ -165,3 +165,29 @@ button:hover{
     margin: 0px auto;
     grid-area: y;
 }
+
+#voltar{
+    grid-area: c;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-areas: "img text";
+}
+
+#voltar img{
+    width: 2rem;
+    grid-area: img;
+    justify-self: end;
+    align-self: center;
+}
+
+#voltar span{
+    grid-area: text;
+    justify-self: start;
+    align-self: center;
+}
+
+#voltar span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

@@ -3,8 +3,9 @@ import Menu from '../../components/Menu';
 import Api from '../login/Api';
 import './VerProduto.css'
 import removeProduto from '../../components/RemoveProduto';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link} from "react-router-dom";
 import Axios from 'axios';
+import Voltar from './img/voltar.png'
 
 const VerProduto = (props) => {
     const data = props.location
@@ -155,11 +156,18 @@ const VerProduto = (props) => {
             </div>
             <p id="feedback">Quantidade Atualizada</p>
 
+            <div id="voltar">
+                <img src={Voltar}></img>
+                <span><Link to="/listar-produto">Voltar</Link></span>
+            </div>
+
+
         </div>
         <div id="produtoDeletado">
             <h2>Este produto foi deletado</h2>
             <p onClick={voltarParaProdutos}>Voltar</p>
         </div>
+        
     </>
     );
 }
