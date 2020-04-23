@@ -118,9 +118,11 @@ const VerProduto = (props) => {
         })
 
 
-        let img = document.createElement("img");
-        img.src = produto.thumbnail_url
-        img.id = "produto-img"
+        let img = document.createElement("div");
+        img.style.backgroundImage = `url(${produto.thumbnail_url}) `;
+        img.id = "produto-img";
+
+
         document.getElementById("produto").appendChild(img)
         document.getElementById("nome").innerHTML = produto.name;
         document.getElementById("precoValor").innerHTML = produto.value;
