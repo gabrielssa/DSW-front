@@ -4,8 +4,16 @@ import './ListarProduto.css'
 import Api from '../login/Api';
 import { useHistory } from "react-router-dom";
 import RemoveProduto from '../../components/RemoveProduto';
+import ResolveNome from '../../components/ResolveNome';
 
-const ListarProduto = () => {
+const ListarProduto = (props) => {
+    const data = props.location
+
+    const produto ={
+        "category":data.category
+    }
+
+
 
     let history = useHistory();
 
@@ -115,7 +123,23 @@ const ListarProduto = () => {
               document.getElementById("produtos").appendChild(produto)
           }
         })
+
+    
     }
+
+    const afterLoaded = () =>{
+        if (produto.category){
+            let nome = ResolveNome(produto.category)
+            let argumento = {
+                "categoria":produto.category,
+                "nome":nome
+            }
+            handleRequest(argumento)
+        }
+        
+    }
+
+    document.onload = afterLoaded();
 
     return (
         <><div id="principal">

@@ -96,4 +96,5 @@ aside li{
 
 aside li:hover{
     cursor: pointer;
+    text-decoration: underline;
 }

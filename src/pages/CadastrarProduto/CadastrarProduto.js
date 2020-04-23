@@ -4,8 +4,10 @@ import axios from 'axios';
 import './CadastrarProduto.css'
 import Done from './img/done.png'
 import Error from './img/error.png'
+import { useHistory } from "react-router-dom";
 
 const CadastrarProduto = () => {
+    let history = useHistory();
 
     const fileUploadHandler = () => {
         document.getElementById("form").style.display = "none";
@@ -44,6 +46,14 @@ const CadastrarProduto = () => {
                         document.getElementById("form").style.display = "none";
                         document.getElementById("produtoCriado").style.display = "block";
                         document.getElementById("carregando").style.display = "none";
+                        document.getElementById("verProduto").addEventListener("click", () =>{
+                            history.push({
+                                pathname: '/ver-produto',
+                                _id: res.data._id,
+                                amount: res.data.amount
+            
+                              })
+                        })
                     }else{
                         document.getElementById("form").style.display = "none";
                         document.getElementById("erroCriando").style.display = "block";
@@ -89,7 +99,9 @@ const CadastrarProduto = () => {
 
             <div id="produtoCriado">
                 <p>Produto Criado Com Sucesso</p>
+                
                 <img src={Done}></img>
+                <p id="verProduto">Clique Aqui para ver O produto</p>
             </div>
 
             <div id="erroCriando">

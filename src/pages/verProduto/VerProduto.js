@@ -12,11 +12,18 @@ const VerProduto = (props) => {
     let history = useHistory();
 
     const produto ={
-        "qtd":data.amount
+        "qtd":data.amount,
+        "category":data.category
     }
 
-    const voltarParaProdutos = () =>{
-        history.push("/listar-produto")
+    const verifyColor = () =>{
+        if (produto.qtd > 0 && produto.qtd < 10){
+            document.getElementById("quantidade").style.background = 'rgba(255, 255, 0, 0.233)';
+        } else if (produto.qtd === 0){
+            document.getElementById("quantidade").style.background = 'rgba(255, 0, 0, 0.301)';
+        }else{
+            document.getElementById("quantidade").style.background = '#fdfdfd';
+        }
     }
 
     const upgradeQtdStatus = (status) =>{
@@ -37,6 +44,7 @@ const VerProduto = (props) => {
         console.log(produto.qtd)
         upgradeQtdStatus('changed')
         document.getElementById("qtdValor").innerHTML = produto.qtd;
+        verifyColor()
     }
 
     const decrementaQtd = () =>{
@@ -44,6 +52,7 @@ const VerProduto = (props) => {
         console.log(produto.qtd)
         upgradeQtdStatus('changed')
         document.getElementById("qtdValor").innerHTML = produto.qtd;
+        verifyColor()
     }
 
     const atualizaQuantidade = () =>{
@@ -56,6 +65,7 @@ const VerProduto = (props) => {
             "n": novaQtd
         }
 
+
         Axios.put(`http://dsw-backend.herokuapp.com/product/`,localData, {
             'headers': {
               'Authorization': 'Bearer ' + appToken
@@ -63,8 +73,11 @@ const VerProduto = (props) => {
                 upgradeQtdStatus("default")
                 console.log(res)
                 document.getElementById("feedback").style.display = 'block';
+
                 setTimeout(() => {
-                    document.getElementById("feedback").style.display = 'none';
+                    if (document.getElementById("feedback") !== null){
+                        document.getElementById("feedback").style.display = 'none';
+                    }
                 }, 3000);
             })
     }
@@ -92,7 +105,14 @@ const VerProduto = (props) => {
 
         console.log(produto)
 
-        
+        document.getElementById("voltaPListar").addEventListener("click", () =>{
+            history.push({
+                pathname: '/listar-produto',
+                category: produto.category
+    
+              })
+        })
+
 
         let img = document.createElement("img");
         img.src = produto.thumbnail_url
@@ -119,7 +139,14 @@ const VerProduto = (props) => {
 
         document.getElementById("qtdValor").innerHTML = produto.amount;
 
+        if (produto.amount > 0 && produto.amount < 10){
+            document.getElementById("quantidade").style.background = 'rgba(255, 255, 0, 0.233)';
+        } else if (produto.amount === 0){
+            document.getElementById("quantidade").style.background = 'rgba(255, 0, 0, 0.301)';
+        }
 
+        document.getElementById("produto").style.display = 'grid';
+        document.getElementById("carregando").style.display = "none";
 
     }
 
@@ -158,14 +185,17 @@ const VerProduto = (props) => {
 
             <div id="voltar">
                 <img src={Voltar}></img>
-                <span><Link to="/listar-produto">Voltar</Link></span>
+                <span id="voltaPListar">Voltar</span>
             </div>
 
 
         </div>
         <div id="produtoDeletado">
             <h2>Este produto foi deletado</h2>
-            <p onClick={voltarParaProdutos}>Voltar</p>
+            <p><Link to="/listar-produto">Voltar</Link></p>
+        </div>
+        <div id="carregando">
+                <img src="https://miro.medium.com/max/656/1*LruTBJfGS0SDPrR9icfrMw.gif" alt="carregando"></img>
         </div>
         
     </>

@@ -62,6 +62,7 @@
 }
 
 #produtoCriado img{
+    margin-top: 3rem;
     width: 15%;
     display: block;
     margin: 0px auto;
@@ -104,4 +105,14 @@
     background: #e27d60;
     color: #fdfdfd;
     font-size: 16px;
+}
+
+#verProduto{
+    text-decoration: underline;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+#verProduto:hover{
+    cursor: pointer;
 }
