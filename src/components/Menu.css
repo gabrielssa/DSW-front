@@ -1,4 +1,3 @@
-
 #navbar{
     list-style-type: none;
     padding: 0px;
@@ -63,4 +62,18 @@
     float: right;
     position: relative;
     top: 1.2rem;
+}
+
+#title{
+    display: none;
+}
+
+.listarProdutoMenu li[id='listar-produto']{
+    background: #41b3a3;
+    color: #fdfdfd;
+}
+
+.cadastrarProdutoMenu li[id='cadastrar-produto']{
+    background: #41b3a3;
+    color: #fdfdfd;
 }

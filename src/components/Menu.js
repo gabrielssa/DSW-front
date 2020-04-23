@@ -1,9 +1,9 @@
 import React from 'react';
 import './Menu.css';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const Menu = (props) => {
-
+    const data = props.location
 
     let history = useHistory();
 
@@ -11,22 +11,36 @@ const Menu = (props) => {
             localStorage.removeItem('app-token')
             history.push('/')
     }
+    
 
-    window.onload = function(){
-        if (props.page != 'produto'){
-            document.getElementById(props.page).style.background = '#41b3a3';
-            document.getElementById(props.page).style.color = '#fdfdfd';
-        }
+    const historyPush = (pageb) => {
+        history.push({
+            pathname: `/${pageb}`,
+          })
     }
+    
 
     return (
     <>
         <div id="menu-container">
             <h1>Naja</h1>
-            <nav id="navbar-container">
-                <ul id="navbar" >
-                <a href="/cadastrar-produto"><li id="cadastrarProduto">Cadastrar Produto</li></a>
-                <a href="/listar-produto"><li id="listarProduto">Listar Produtos</li></a>
+
+            
+            <nav id="navbar-container" class={props.page+'Menu'}>
+                <ul id="navbar">
+                
+                <li id="cadastrar-produto" onClick={
+                    () => {
+                    historyPush('cadastrar-produto')
+                    }
+                }>Cadastrar Produto</li>
+
+                
+                <li id="listar-produto" onClick={
+                    () => {
+                    historyPush('listar-produto')
+                    }
+                }>Listar Produtos</li>
                     <li id="logout" onClick={logout}>Logout</li>
                 </ul>
             </nav>

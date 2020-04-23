@@ -4,10 +4,16 @@ import axios from 'axios';
 import './CadastrarProduto.css'
 import Done from './img/done.png'
 import Error from './img/error.png'
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const CadastrarProduto = () => {
     let history = useHistory();
+
+    const enviarNovamente = () => {
+        document.getElementById("form").style.display = "block";
+        document.getElementById("carregando").style.display = "none";
+        document.getElementById("erroCriando").style.display = "none";
+    }
 
     const fileUploadHandler = () => {
         document.getElementById("form").style.display = "none";
@@ -88,9 +94,9 @@ const CadastrarProduto = () => {
                 </select>
 
                 <input type="text" name ="amount" id="amount" class="form-element" placeholder="Quantidade em Estoque"/>
-
+                <label for="value" id="valueLabel">Use "." para separar reais dos centavos, exemplo: 60.44</label>
                 <input type="text" name ="value" id="value" class="form-element" placeholder="Valor do Produto em R$ Ex: 44.56"/>
-                <button onClick={fileUploadHandler} class="form-element" id="btn">Upload</button>
+                <button onClick={fileUploadHandler} id="btn">Upload</button>
             </div>
 
             <div id="carregando">
@@ -106,7 +112,10 @@ const CadastrarProduto = () => {
 
             <div id="erroCriando">
                 <p>Erro na criação do Produto</p>
+                
                 <img src={Error}></img>
+
+                <p onClick={enviarNovamente} id="sendAgain">Tentar Novamente</p>
             </div>
         </>
     )

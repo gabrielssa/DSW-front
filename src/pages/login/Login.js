@@ -18,7 +18,7 @@ const Login = () => {
                 const { data } = resp
                 if ( data ){
                     localStorage.setItem('app-token', data.token)
-                    window.location = "/listar-produto"
+                    history.push('/listar-produto')
                 }
             }).catch(function(motivo) {
                 console.log("erro")

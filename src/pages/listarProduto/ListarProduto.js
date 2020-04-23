@@ -61,14 +61,21 @@ const ListarProduto = (props) => {
           const test = res.data;
           document.getElementById("produtos").innerHTML = '';
 
-          if (test.length === 0){
-              var result = document.createElement("p")
-              var resultText = document.createTextNode(`Nenhum produto encontrado na categoria de ${values.nome}`);
-              result.appendChild(resultText);
-              document.getElementById("produtos").appendChild(result)
-              
 
-          }
+        var produto = document.createElement("div");
+        produto.className = "produtoExemplo";
+        var nameP = document.createElement("span");
+
+            if (test.length === 0){
+                var namePText = document.createTextNode(`Nenhum produto encontrado na categoria de ${values.nome}`);
+            }else{
+                var namePText = document.createTextNode(`Visualizando a categoria de ${values.nome}`);
+            }
+
+        nameP.appendChild(namePText);
+        produto.appendChild(nameP);
+        document.getElementById("produtos").appendChild(produto)
+
           for (let i = 0; i < test.length; i++){
               var produto = document.createElement("div");
               produto.className = "produto";
