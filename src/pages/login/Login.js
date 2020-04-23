@@ -11,6 +11,7 @@ const Login = () => {
     let history = useHistory();
 
     const handleSubmit = values => {
+        document.getElementById("feedback").innerHTML = 'Logando'
         axios.post('http://dsw-backend.herokuapp.com/login', values)
             .then(resp => {
                 const { data } = resp
@@ -18,7 +19,13 @@ const Login = () => {
                     localStorage.setItem('app-token', data.token)
                     window.location = "/listar-produto"
                 }
-            });
+            }).catch(function(motivo) {
+                console.log(motivo)
+                document.getElementById("feedback").innerHTML = 'Senha ou Login incorretos'
+                setTimeout(() => {
+                    document.getElementById("feedback").innerHTML = '';
+                }, 3000);
+             });
     }
     
     const validations = yup.object().shape({
@@ -31,6 +38,7 @@ const Login = () => {
         <div id="login-container">
         <h1>Login</h1>
         <p>Preencha os campos para logar</p>
+        <p id="feedback"></p>
 
         <Formik initialValues={{}} onSubmit={handleSubmit} validationSchema={validations}>
             <Form className="Login">
@@ -38,6 +46,7 @@ const Login = () => {
                     <Field
                         name="email"
                         className="Login-Field"
+                        placeholder="Email"
                     />
 
                     <ErrorMessage 
@@ -52,6 +61,8 @@ const Login = () => {
                     <Field
                         name="password"
                         className="Login-Field"
+                        placeholder="Senha"
+                        type="password"
                     />
 
                     <ErrorMessage 

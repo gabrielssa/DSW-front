@@ -3,51 +3,11 @@ import Menu from '../../components/Menu';
 import './ListarProduto.css'
 import Api from '../login/Api';
 import { useHistory } from "react-router-dom";
+import RemoveProduto from '../../components/RemoveProduto';
 
 const ListarProduto = () => {
 
     let history = useHistory();
-    
-
-    const removeProduct = function(produto){
-        appToken = localStorage.getItem('app-token')
-        
-        const config = {
-            'headers': {
-              'Authorization': `Bearer ${appToken}`
-            }}
-        
-        const bodyParameters = {
-           "_id": ""
-        };
-
-        bodyParameters._id = produto._id;
-        
-        var r = window.confirm("Você realmente deseja remover este item?");
-        if (r == true) {
-            Api.delete( 
-                `http://dsw-backend.herokuapp.com/product/${produto._id}`,
-                config,
-              ).then(res =>{
-                  console.log(res);
-                  alert('Item Apagado');
-                  if (produto.category === "tv"){
-                      listaTvs();
-                  }else if (produto.category === "edo"){
-                      listaEdo();
-                  }else if (produto.category === "vga"){
-                      listaVga();
-                  }else if (produto.category === "cel"){
-                      listaCel();
-                  }
-      
-              })
-        } else {
-            alert("Remoção de Item Cancelada");
-        } 
-
-
-    }
 
     const listaTvs = () =>{
         let argumento = {
@@ -104,6 +64,7 @@ const ListarProduto = () => {
           for (let i = 0; i < test.length; i++){
               var produto = document.createElement("div");
               produto.className = "produto";
+              produto.id = test[i].name
 
 
               var nameP = document.createElement("span");
@@ -126,7 +87,7 @@ const ListarProduto = () => {
               img.id = "img-apagar";
         
               img.addEventListener("click", () => {
-                    removeProduct(test[i])
+                    RemoveProduto(test[i],appToken,'listar-produto')
               })
 
               if (test[i].amount < 10 && test[i].amount > 0){

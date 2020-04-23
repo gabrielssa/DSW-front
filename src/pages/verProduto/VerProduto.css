@@ -141,3 +141,27 @@ button:hover{
 .hoverGreen{
     background: #c38d9e;
 }
+
+#produtoDeletado{
+    margin-top: 3rem;
+    margin: 0px auto;
+    text-align: center;
+    display: none;
+}
+
+#produtoDeletado p{
+    margin-top: 2rem;
+}
+
+#produtoDeletado p:hover{
+    cursor:pointer;
+    text-decoration: underline;
+}
+
+#feedback{
+    transition: 500ms;
+    display: none;
+    text-align: center;
+    margin: 0px auto;
+    grid-area: y;
+}

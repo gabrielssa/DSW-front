@@ -44,3 +44,12 @@
 .Login-Group{
     margin: 0px auto;
 }
+
+#feedback{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    font-weight: 800;
+    font-size: 0.7rem;
+    color: red;
+}

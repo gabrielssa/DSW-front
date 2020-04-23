@@ -2,12 +2,20 @@ import React from 'react';
 import Menu from '../../components/Menu';
 import Api from '../login/Api';
 import './VerProduto.css'
+import removeProduto from '../../components/RemoveProduto';
+import { useHistory } from "react-router-dom";
+import Axios from 'axios';
 
 const VerProduto = (props) => {
     const data = props.location
+    let history = useHistory();
 
     const produto ={
         "qtd":data.amount
+    }
+
+    const voltarParaProdutos = () =>{
+        history.push("/listar-produto")
     }
 
     const upgradeQtdStatus = (status) =>{
@@ -37,6 +45,29 @@ const VerProduto = (props) => {
         document.getElementById("qtdValor").innerHTML = produto.qtd;
     }
 
+    const atualizaQuantidade = () =>{
+        let appToken = localStorage.getItem('app-token')
+        let idProduto = data._id
+        let novaQtd = produto.qtd
+
+        let localData = {
+            "_id":idProduto,
+            "n": novaQtd
+        }
+
+        Axios.put(`http://dsw-backend.herokuapp.com/product/`,localData, {
+            'headers': {
+              'Authorization': 'Bearer ' + appToken
+            }}).then(res =>{
+                upgradeQtdStatus("default")
+                console.log(res)
+                document.getElementById("feedback").style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById("feedback").style.display = 'none';
+                }, 3000);
+            })
+    }
+
     const handleRequest = () => {
 
         let appToken = localStorage.getItem('app-token')
@@ -51,17 +82,27 @@ const VerProduto = (props) => {
             })
     }
 
+    const remover = (produto, token) =>{
+        removeProduto(produto, token, 'ver-produto')
+    }
+
     const renderProduct = (produto) => {
         
 
         console.log(produto)
+
         
+
         let img = document.createElement("img");
         img.src = produto.thumbnail_url
         img.id = "produto-img"
         document.getElementById("produto").appendChild(img)
         document.getElementById("nome").innerHTML = produto.name;
         document.getElementById("precoValor").innerHTML = produto.value;
+        document.getElementById("remover").addEventListener("click", () =>{
+            let appToken = localStorage.getItem('app-token')
+            remover(produto, appToken)
+        })
 
         let categoria = document.getElementById("categoriaValor");
 
@@ -110,9 +151,14 @@ const VerProduto = (props) => {
             <div id="atualizar">
                 <button id="incQtd" class="hoverGreen" onClick={incrementaQtd}><p><i class="arrow up"></i></p></button>
                 <button id="decQtd" class="hoverGreen" onClick={decrementaQtd}><p><i class="arrow down"></i></p></button>
-                <button id="atuQtd" class="hoverGreen">Atualizar Quantidade</button>
+                <button id="atuQtd" class="hoverGreen" onClick={atualizaQuantidade}>Atualizar Quantidade</button>
             </div>
+            <p id="feedback">Quantidade Atualizada</p>
 
+        </div>
+        <div id="produtoDeletado">
+            <h2>Este produto foi deletado</h2>
+            <p onClick={voltarParaProdutos}>Voltar</p>
         </div>
     </>
     );
