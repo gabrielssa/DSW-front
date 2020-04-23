@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/DSW-front/static/css/main.735bdbb4.chunk.css",
+    "main.js": "/DSW-front/static/js/main.63f4bd29.chunk.js",
+    "main.js.map": "/DSW-front/static/js/main.63f4bd29.chunk.js.map",
+    "runtime-main.js": "/DSW-front/static/js/runtime-main.8cee81c2.js",
+    "runtime-main.js.map": "/DSW-front/static/js/runtime-main.8cee81c2.js.map",
+    "static/css/2.764ccc25.chunk.css": "/DSW-front/static/css/2.764ccc25.chunk.css",
+    "static/js/2.d2ca105f.chunk.js": "/DSW-front/static/js/2.d2ca105f.chunk.js",
+    "static/js/2.d2ca105f.chunk.js.map": "/DSW-front/static/js/2.d2ca105f.chunk.js.map",
+    "index.html": "/DSW-front/index.html",
+    "precache-manifest.e5f968d51536f0094fc4248b813193bf.js": "/DSW-front/precache-manifest.e5f968d51536f0094fc4248b813193bf.js",
+    "service-worker.js": "/DSW-front/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "/DSW-front/static/css/2.764ccc25.chunk.css.map",
+    "static/css/main.735bdbb4.chunk.css.map": "/DSW-front/static/css/main.735bdbb4.chunk.css.map",
+    "static/js/2.d2ca105f.chunk.js.LICENSE.txt": "/DSW-front/static/js/2.d2ca105f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8cee81c2.js",
+    "static/css/2.764ccc25.chunk.css",
+    "static/js/2.d2ca105f.chunk.js",
+    "static/css/main.735bdbb4.chunk.css",
+    "static/js/main.63f4bd29.chunk.js"
+  ]
+}
