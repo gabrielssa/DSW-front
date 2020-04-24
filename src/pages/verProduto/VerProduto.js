@@ -18,7 +18,7 @@ const VerProduto = (props) => {
 
     const verifyColor = () =>{
         if (produto.qtd > 0 && produto.qtd < 10){
-            document.getElementById("quantidade").style.background = 'rgba(255, 255, 0, 0.233)';
+            document.getElementById("quantidade").style.background = 'rgb(231, 212, 39)';
         } else if (produto.qtd === 0){
             document.getElementById("quantidade").style.background = 'rgba(255, 0, 0, 0.301)';
         }else{

@@ -106,7 +106,7 @@ const ListarProduto = (props) => {
               })
 
               if (test[i].amount < 10 && test[i].amount > 0){
-                  produto.style.background = "rgba(192, 173, 1,0.2)";
+                  produto.style.background = "rgb(231, 212, 39)";
                   produto.style.color = "#41b3a3";
               }else if (test[i].amount === 0){
                   produto.style.background = "rgba(255, 0, 0, 0.200";
@@ -154,7 +154,7 @@ const ListarProduto = (props) => {
                 <Menu page="listarProduto"/>
             </div>
             <div id="sidebar">
-            <aside>
+            <aside id="navLinks">
                 <h1>Categorias</h1>
                 <ul>
                     <li onClick={listaTvs}>TVs</li>
