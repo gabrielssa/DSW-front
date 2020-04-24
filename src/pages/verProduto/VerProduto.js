@@ -197,7 +197,7 @@ const VerProduto = (props) => {
 
         </div>
         <div id="produtoDeletado">
-            <h2>Este produto foi deletado</h2>
+            <h2>Este produto foi apagado</h2>
             <p><Link to="/listar-produto">Voltar</Link></p>
         </div>
         <div id="carregando">
