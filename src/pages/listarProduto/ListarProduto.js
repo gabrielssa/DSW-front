@@ -165,7 +165,7 @@ const ListarProduto = (props) => {
             </aside>
             </div>
             <div id="produtos">
-                <p>Selecione uma categoria</p>
+                <p>Selecione alguma categoria</p>
             </div>
         </div>
         </>
