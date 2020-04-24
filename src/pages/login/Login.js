@@ -5,12 +5,16 @@ import {ErrorMessage, Formik, Form, Field} from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
 
+import Loading from './img/loading.gif';
+import Nuvem from './img/nuvem.png';
+
 import './login.css';
 
 const Login = () => {
     let history = useHistory();
 
     const handleSubmit = values => {
+        updateUI('loading')
         document.getElementById("feedback").innerHTML = 'Logando'
         axios.post('https://dsw-backend.herokuapp.com/login', values)
             .then(resp => {
@@ -23,6 +27,7 @@ const Login = () => {
             }).catch(function(motivo) {
                 console.log("erro")
                 alert('login ou senha incorretos')
+                updateUI('default')
                 /*
                 document.getElementById("feedback").innerHTML = 'Senha ou Login incorretos'
                 setTimeout(() => {
@@ -35,6 +40,27 @@ const Login = () => {
         email: yup.string().email().required(),
         password: yup.string().min(2).required()
     })
+
+    
+
+    const updateUI = (state) => {
+        let loginContainer = document.getElementById("login-container");
+        let nuvem = document.getElementById("loading-cloud")
+        let loading = document.getElementById("loading-gif")
+
+        if (state === 'loading'){
+            loginContainer.style.filter = 'blur(5px)';
+            loginContainer.style.filter = 'grayscale(100)';
+            nuvem.style.display = 'block'
+            loading.style.display = 'block'
+        }else if(state ==='default'){
+            loginContainer.style.filter = 'blur(0px)';
+            loginContainer.style.filter = 'grayscale(0)';
+            nuvem.style.display = 'none'
+            loading.style.display = 'none'
+        }
+
+    }
 
     return (
         <>
@@ -86,6 +112,9 @@ const Login = () => {
                 <p>Não tem uma conta?</p>
             </div>
         </div>
+        <img src={Loading} alt="carregando" class="loading-img" id="loading-gif"/>
+        <img src={Nuvem} alt="nuvem" class="loading-img" id="loading-cloud"/>
+
         </>
     )
 }

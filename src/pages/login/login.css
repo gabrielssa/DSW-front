@@ -61,3 +61,17 @@
 .Login-Error{
     display: block;
 }
+
+.loading-img{
+    display: none;
+    position: absolute;
+    top: 12rem;
+    left: 40rem;
+    width: 5rem;
+    background: transparent;
+}
+
+
+#loading-gif{
+    z-index: 2;
+}
