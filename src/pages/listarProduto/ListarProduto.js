@@ -154,6 +154,7 @@ const ListarProduto = (props) => {
                 <Menu page="listarProduto"/>
             </div>
             <div id="sidebar">
+            <aside>
                 <h1>Categorias</h1>
                 <ul>
                     <li onClick={listaTvs}>TVs</li>
