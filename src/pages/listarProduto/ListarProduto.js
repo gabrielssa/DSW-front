@@ -53,7 +53,7 @@ const ListarProduto = (props) => {
     const handleRequest = values => {
         let category = values.categoria;
         appToken = localStorage.getItem('app-token')
-        Api.get(`http://dsw-backend.herokuapp.com/product?category=${category}&order=asc`, {
+        Api.get(`https://dsw-backend.herokuapp.com/product?category=${category}&order=asc`, {
             'headers': {
               'Authorization': 'Bearer ' + appToken
             }})
@@ -154,7 +154,6 @@ const ListarProduto = (props) => {
                 <Menu page="listarProduto"/>
             </div>
             <div id="sidebar">
-            <aside>
                 <h1>Categorias</h1>
                 <ul>
                     <li onClick={listaTvs}>TVs</li>

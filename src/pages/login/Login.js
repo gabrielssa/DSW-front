@@ -12,7 +12,7 @@ const Login = () => {
 
     const handleSubmit = values => {
         document.getElementById("feedback").innerHTML = 'Logando'
-        axios.post('http://dsw-backend.herokuapp.com/login', values)
+        axios.post('https://dsw-backend.herokuapp.com/login', values)
             .then(resp => {
                 console.log(resp)
                 const { data } = resp

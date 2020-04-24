@@ -41,7 +41,7 @@ const CadastrarProduto = () => {
 
 
         let appToken = localStorage.getItem('app-token')
-        axios.post('http://dsw-backend.herokuapp.com/product', fd, {
+        axios.post('https://dsw-backend.herokuapp.com/product', fd, {
             'headers': {
               'Authorization': 'Bearer ' + appToken
             }})

@@ -17,7 +17,7 @@ const removeProduto = (produto, appToken, local) => {
     var r = window.confirm("Você realmente deseja remover este item?");
     if (r == true) {
         Api.delete( 
-            `http://dsw-backend.herokuapp.com/product/${produto._id}`,
+            `https://dsw-backend.herokuapp.com/product/${produto._id}`,
             config,
           ).then(res =>{
               console.log(res);

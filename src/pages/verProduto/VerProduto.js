@@ -70,7 +70,7 @@ const VerProduto = (props) => {
         }
 
 
-        Axios.put(`http://dsw-backend.herokuapp.com/product/`,localData, {
+        Axios.put(`https://dsw-backend.herokuapp.com/product/`,localData, {
             'headers': {
               'Authorization': 'Bearer ' + appToken
             }}).then(res =>{
@@ -92,7 +92,7 @@ const VerProduto = (props) => {
         console.log("Token " + appToken)
         console.log("Data id: "+data._id)
 
-        Api.get(`http://dsw-backend.herokuapp.com/product/${data._id}`, {
+        Api.get(`https://dsw-backend.herokuapp.com/product/${data._id}`, {
             'headers': {
               'Authorization': 'Bearer ' + appToken
             }}).then(res =>{
