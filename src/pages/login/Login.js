@@ -36,10 +36,14 @@ const Login = () => {
 
         axios.post('https://dsw-backend.herokuapp.com/loginGoogle', data).then(resp => {
             console.log(resp)
+            const { data } = resp
 
-            localStorage.setItem('app-token', resp.token)
-            localStorage.setItem('app-username', resp.user.name)
-            history.push('/listar-produto')
+            if ( data ){
+                localStorage.setItem('app-token', data.token)
+                localStorage.setItem('app-username', data.user.name)
+                history.push('/listar-produto')
+            }
+
         });
         
 
