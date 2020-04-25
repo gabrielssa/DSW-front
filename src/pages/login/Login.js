@@ -19,19 +19,11 @@ const Login = () => {
 
     const responseGoogle = response => {
 
-        if (response.profileObj){
-            SetName(response.profileObj.name);
-            SetId(response.profileObj.googleId);
-        }
+        SetName(response.profileObj.name);
+        SetId(response.profileObj.googleId);
 
-        console.log("Profile obj: "+response.profileObj.name)
-
-        const data = {
-            "name": name,
-            "googleId": id
-        }
-
-        console.log(response.profileObj.id)
+        console.log(name)
+        console.log(id)
 
         updateUI('loading')
         
