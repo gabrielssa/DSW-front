@@ -7,8 +7,6 @@ import {
 } from 'react-router-dom';
 
 import Login from '../pages/login';
-import Register from '../pages/register';
-import Home from '../pages/home';
 import NotFound from '../components/NotFound';
 import PrivateRoute from './PrivateRoute.js';
 import CadastrarProduto from '../pages/CadastrarProduto';
@@ -18,7 +16,6 @@ import VerProduto from '../pages/verProduto';
 const Routes = () => (
   <Router >
     <Switch>
-      <Route path="/register" component={Register} />
       <PrivateRoute path="/cadastrar-produto" component={CadastrarProduto}/>
       <PrivateRoute path="/listar-produto" component={ListarProduto}/>
       <PrivateRoute path="/ver-produto" component={VerProduto} />

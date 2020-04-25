@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { useHistory, Link } from "react-router-dom";
-import {ErrorMessage, Formik, Form, Field} from 'formik';
+import { useHistory} from "react-router-dom";
 import * as yup from 'yup';
 import axios from 'axios';
 import GoogleLogin from 'react-google-login';
@@ -14,10 +13,26 @@ import './login.css';
 const Login = () => {
     let history = useHistory();
 
-    const handleSubmit = values => {
+    const [name, SetName] = useState("");
+
+    const [id, SetId] = useState("");
+
+    const responseGoogle = response => {
+
+        if (response.profileObj){
+            SetName(response.profileObj.name);
+            SetId(response.profileObj.googleId);
+        }
+
+        let data = {
+            "name": name,
+            "googleId": id
+        }
+
         updateUI('loading')
+        
         document.getElementById("feedback").innerHTML = 'Logando'
-        axios.post('https://dsw-backend.herokuapp.com/login', values)
+        axios.post('https://dsw-backend.herokuapp.com/login', data)
             .then(resp => {
                 console.log(resp)
                 const { data } = resp
@@ -37,11 +52,6 @@ const Login = () => {
                 }, 3000);*/
              });
     }
-    
-    const validations = yup.object().shape({
-        email: yup.string().email().required(),
-        password: yup.string().min(2).required()
-    })
 
     
 
@@ -64,67 +74,19 @@ const Login = () => {
 
     }
 
-    const responseGoogle = (response) => {
-        console.log(response);
-    }
-
     return (
         <>
         <div id="login-container">
         <h1>Login</h1>
-        <p> Preencha os campos para logar</p>
-        <p id="feedback"></p>
-
-        <Formik initialValues={{}} onSubmit={handleSubmit} validationSchema={validations}>
-            <Form className="Login">
-                <div className="Login-Group">
-                    <Field
-                        name="email"
-                        className="Login-Field"
-                        placeholder="Email"
-                    />
-
-                    <ErrorMessage 
-                        component="span" 
-                        name="email" 
-                        className="Login-Error">
-                    </ErrorMessage>
-
-                </div>
-
-                <div className="Login-Group">
-                    <Field
-                        name="password"
-                        className="Login-Field"
-                        placeholder="Senha"
-                        type="password"
-                    />
-
-                    <ErrorMessage 
-                        component="span" 
-                        name="password" 
-                        className="Login-Error">
-                    </ErrorMessage>
-
-                </div>
-
-
-                <button className="Login-Btn" type="submit">Login</button>
-            </Form>
-        </Formik>
-        <h2>Ou faça login pelo google</h2>
-        <div id="googleLogin">
-            <GoogleLogin
-                clientId="332676288891-ore1jc8akqhnk1iiji162jhkk2p6sigo.apps.googleusercontent.com"
-                buttonText="Login com Google"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
-        </div>
-            <div id="links">
-                <p>Não tem uma conta?</p>
-                <p><Link to="/register">Registrar</Link></p>
+        <p>Entre em sua conta Google para logar, o cadastro é feito automaticamente</p>
+            <div id="googleLogin">
+                <GoogleLogin
+                    clientId="332676288891-ore1jc8akqhnk1iiji162jhkk2p6sigo.apps.googleusercontent.com"
+                    buttonText="Login com Google"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
             </div>
         </div>
         <img src={Loading} alt="carregando" class="loading-img" id="loading-gif"/>
