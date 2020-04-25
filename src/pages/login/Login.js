@@ -114,8 +114,8 @@ const Login = () => {
         <div>
             <h2>Ou faça login pelo google</h2>
             <GoogleLogin
-                clientId="332676288891-a6r2rr9k2j1ic649c16ie6u5gcu2afs6.apps.googleusercontent.com"
-                buttonText="Login"
+                clientId="332676288891-ore1jc8akqhnk1iiji162jhkk2p6sigo.apps.googleusercontent.com"
+                buttonText="Login com Google"
                 onSuccess={responseGoogle}
                 onFailure={responseGoogle}
                 cookiePolicy={'single_host_origin'}
