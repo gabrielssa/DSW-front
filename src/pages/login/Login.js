@@ -44,31 +44,9 @@ const Login = () => {
                 history.push('/listar-produto')
             }
 
-        });
-        
-
-
-        /*
-        axios.post('https://dsw-backend.herokuapp.com/loginGoogle', data)
-            .then(resp => {
-                console.log(resp)
-                const { data } = resp
-                if ( data ){
-                    localStorage.setItem('app-token', data.token)
-                    localStorage.setItem('app-username', data.user.name)
-                    history.push('/listar-produto')
-                }
-            }).catch(function(motivo) {
-                console.log("erro")
-                alert('login ou senha incorretos')
-                updateUI('default')
-                /*
-                document.getElementById("feedback").innerHTML = 'Senha ou Login incorretos'
-                setTimeout(() => {
-                    document.getElementById("feedback").innerHTML = '';
-                }, 3000);
-             });
-             */
+        }).catch(function(motivo) {
+            alert('Erro ao logar: '+motivo)
+         });
     }
 
     
