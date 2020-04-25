@@ -125,7 +125,7 @@ const VerProduto = (props) => {
 
         document.getElementById("produto").appendChild(img)
         document.getElementById("nome").innerHTML = produto.name;
-        document.getElementById("precoValor").innerHTML = produto.value;
+        document.getElementById("precoValor").innerHTML = produto.value.toFixed(2);
         document.getElementById("remover").addEventListener("click", () =>{
             let appToken = localStorage.getItem('app-token')
             remover(produto, appToken)
