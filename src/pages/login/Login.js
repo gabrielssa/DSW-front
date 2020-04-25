@@ -29,13 +29,17 @@ const Login = () => {
         updateUI('loading')
 
         const data = {
-                "googleId": `${nome}`,
-                "name": `${id}`
+                "googleId": `${id}`,
+                "name": `${nome}`
             }
         
 
         axios.post('https://dsw-backend.herokuapp.com/loginGoogle', data).then(resp => {
             console.log(resp)
+
+            localStorage.setItem('app-token', resp.token)
+            localStorage.setItem('app-username', resp.user.name)
+            history.push('/listar-produto')
         });
         
 
