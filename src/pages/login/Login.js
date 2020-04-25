@@ -26,7 +26,7 @@ const Login = () => {
 
         console.log("Profile obj: "+response.profileObj.name)
 
-        let data = {
+        const data = {
             "name": name,
             "googleId": id
         }
