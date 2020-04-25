@@ -20,6 +20,8 @@ const Login = () => {
     const responseGoogle = response => {
 
         console.log(response)
+        console.log(response.profileObj.givenName)
+        console.log(response.profileObj.googleId)
         /*
         updateUI('loading')
         
