@@ -23,6 +23,7 @@ const Login = () => {
                 const { data } = resp
                 if ( data ){
                     localStorage.setItem('app-token', data.token)
+                    localStorage.setItem('app-username', data.user.name)
                     history.push('/listar-produto')
                 }
             }).catch(function(motivo) {
@@ -111,8 +112,8 @@ const Login = () => {
                 <button className="Login-Btn" type="submit">Login</button>
             </Form>
         </Formik>
-        <div>
-            <h2>Ou faça login pelo google</h2>
+        <h2>Ou faça login pelo google</h2>
+        <div id="googleLogin">
             <GoogleLogin
                 clientId="332676288891-ore1jc8akqhnk1iiji162jhkk2p6sigo.apps.googleusercontent.com"
                 buttonText="Login com Google"

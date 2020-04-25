@@ -179,13 +179,13 @@ const VerProduto = (props) => {
             </div>
 
             <div id="remover">
-                <span>Apagar Produto</span>
+                <span>Excluir Produto</span>
             </div>
 
             <div id="atualizar">
-                <button id="incQtd" class="hoverGreen" onClick={incrementaQtd}><p><i class="arrow up"></i></p></button>
-                <button id="decQtd" class="hoverGreen" onClick={decrementaQtd}><p><i class="arrow down"></i></p></button>
-                <button id="atuQtd" class="hoverGreen" onClick={atualizaQuantidade}>Atualizar Quantidade</button>
+                <button id="incQtd"  onClick={incrementaQtd}><p><i class="arrow up"></i></p></button>
+                <button id="decQtd"  onClick={decrementaQtd}><p><i class="arrow down"></i></p></button>
+                <button id="atuQtd"  onClick={atualizaQuantidade}>Atualizar Quantidade</button>
             </div>
             <p id="feedback">Quantidade Atualizada</p>
 

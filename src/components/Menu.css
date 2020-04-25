@@ -77,3 +77,11 @@
     background: #41b3a3;
     color: #fdfdfd;
 }
+
+#welcome{
+    font-size: 1rem;
+    position: absolute;
+    top: 2rem;
+    right: 14.4rem;
+    text-decoration: underline;
+}

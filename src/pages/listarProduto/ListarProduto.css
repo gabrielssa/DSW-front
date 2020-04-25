@@ -18,7 +18,8 @@
 }
 
 .produto{
-    border: 1px solid #c38d9e;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.308);
+
     margin-bottom: 0.3rem;
     background: white;
     height: 3rem;
@@ -102,12 +103,11 @@ aside li:hover{
     font-size: 1rem;
     display: block;
     text-align: center;
-    margin: 1rem 0px 1rem 0px;
     text-transform: uppercase;
+    padding-top: 1rem;
 }
 
 .produtoExemplo{
-    border: 1px solid gray;
     margin-bottom: 0.3rem;
     background: lightgray;
     height: 3rem;

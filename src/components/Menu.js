@@ -5,10 +5,13 @@ import { useHistory, Link } from "react-router-dom";
 const Menu = (props) => {
     const data = props.location
 
+    const username = localStorage.getItem('app-username')
+
     let history = useHistory();
 
     const logout = values => {
             localStorage.removeItem('app-token')
+            localStorage.removeItem('app-username')
             history.push('/')
     }
     
@@ -43,6 +46,8 @@ const Menu = (props) => {
                 }>Listar Produtos</li>
                     <li id="logout" onClick={logout}>Logout</li>
                 </ul>
+
+                <p id="welcome">Bem vindo {username}</p>
             </nav>
         </div>
     </>

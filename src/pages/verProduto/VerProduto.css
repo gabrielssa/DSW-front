@@ -54,7 +54,7 @@
 #nome{
     border-bottom: 2px solid #41B3A3;
     grid-area: nome;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     justify-self: center;
     align-self: end;
 }
@@ -71,14 +71,20 @@
     grid-area: remover;
     justify-self: center;
     align-self: center;
+
     width: 250px;
     height: 100%;
-    background: #e49764;
+
+    border: 2px solid red;
+    border-radius: 10px;
+    font-size: 1rem;
     text-align: center;
+    color: red;
 }
 
 #remover:hover{
-    background: #e2775a;
+    background: red;
+    color: #fdfdfd;
     cursor:pointer;
 }
 
@@ -100,11 +106,13 @@ i {
 .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
+    border-color: #41B3A3;
 }
 
 .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+    border-color: #41B3A3;
 }
   
 
@@ -132,11 +140,25 @@ button:hover{
 
 #incQtd{
     grid-area: up;
+    border-top: 2px solid #41B3A3;
+    border-left: 2px solid #41B3A3;
+    border-top-left-radius: 10px;
+    transition: all 200ms linear;
+}
+
+#incQtd:hover{
+    transform: scale(1.2);
 }
 
 #decQtd{
     grid-area: down;
+    border-bottom: 2px solid #41B3A3;
+    border-left: 2px solid #41B3A3;
+    transition: all 200ms linear;
+}
 
+#decQtd:hover{
+    transform: scale(1.2);
 }
 
 #atuQtd{
@@ -146,14 +168,19 @@ button:hover{
     text-transform: uppercase;
     font-weight: 900;
 
+    border-top: 2px solid #41B3A3;
+    border-bottom: 2px solid #41B3A3;
+    border-bottom-right-radius: 10px;
+    border-right: 2px solid #41B3A3;
+    border-left: 2px solid #41B3A3;
+
+    color: #41B3A3;
+
 }
 
-.hoverGreen:hover{
-    background: #c0788f;
-}
-
-.hoverGreen{
-    background: #c38d9e;
+#atuQtd:hover{
+    background: #41B3A3;
+    color: white;
 }
 
 #produtoDeletado{
