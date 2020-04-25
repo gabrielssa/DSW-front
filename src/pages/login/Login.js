@@ -123,8 +123,8 @@ const Login = () => {
             />
         </div>
             <div id="links">
-                <p><Link to="/register">Registrar</Link></p>
                 <p>Não tem uma conta?</p>
+                <p><Link to="/register">Registrar</Link></p>
             </div>
         </div>
         <img src={Loading} alt="carregando" class="loading-img" id="loading-gif"/>
