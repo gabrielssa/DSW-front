@@ -34,7 +34,7 @@ const Login = () => {
         updateUI('loading')
         
         
-        axios.post('https://dsw-backend.herokuapp.com/login', data)
+        axios.post('https://dsw-backend.herokuapp.com/loginGoogle', data)
             .then(resp => {
                 console.log(resp)
                 const { data } = resp
