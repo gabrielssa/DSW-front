@@ -19,12 +19,8 @@ const Login = () => {
 
     const responseGoogle = response => {
 
-        SetName(response.profileObj.name);
-        SetId(response.profileObj.googleId);
-
-        console.log(name)
-        console.log(id)
-
+        console.log(response)
+        /*
         updateUI('loading')
         
         
@@ -45,8 +41,9 @@ const Login = () => {
                 document.getElementById("feedback").innerHTML = 'Senha ou Login incorretos'
                 setTimeout(() => {
                     document.getElementById("feedback").innerHTML = '';
-                }, 3000);*/
+                }, 3000);
              });
+             */
     }
 
     
