@@ -24,6 +24,8 @@ const Login = () => {
             SetId(response.profileObj.googleId);
         }
 
+        console.log("Profile obj: "+response.profileObj)
+
         let data = {
             "name": name,
             "googleId": id
@@ -31,7 +33,7 @@ const Login = () => {
 
         updateUI('loading')
         
-        document.getElementById("feedback").innerHTML = 'Logando'
+        
         axios.post('https://dsw-backend.herokuapp.com/login', data)
             .then(resp => {
                 console.log(resp)
