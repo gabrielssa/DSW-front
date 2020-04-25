@@ -31,6 +31,8 @@ const Login = () => {
             "googleId": id
         }
 
+        console.log(response.profileObj.id)
+
         updateUI('loading')
         
         
