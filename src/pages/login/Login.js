@@ -22,10 +22,25 @@ const Login = () => {
         console.log(response)
         console.log(response.profileObj.givenName)
         console.log(response.profileObj.googleId)
-        /*
+
+        let nome = response.profileObj.givenName;
+        let id = response.profileObj.googleId;
+        
         updateUI('loading')
+
+        const data = {
+                "googleId": `${nome}`,
+                "name": `${id}`
+            }
         
+
+        axios.post('https://dsw-backend.herokuapp.com/loginGoogle', data).then(resp => {
+            console.log(resp)
+        });
         
+
+
+        /*
         axios.post('https://dsw-backend.herokuapp.com/loginGoogle', data)
             .then(resp => {
                 console.log(resp)
